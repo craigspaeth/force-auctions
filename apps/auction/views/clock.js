@@ -34,9 +34,10 @@ view.styles({
 
 view.render(({ mode }) => {
   const interval = (fmt) => {
-    const diff = moment(state.get('auction').end_at).diff(moment(state.get('now')))
+    const diff = moment(state.get('auction').end_at).diff(state.get('now'))
     const duration = moment.duration(diff, 'milliseconds')
-    return String(duration[fmt]())
+    const str = String(duration[fmt]())
+    return str.length === 1 ? `0${str}` : str
   }
   const data = {
     days: interval('days'),

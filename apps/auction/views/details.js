@@ -2,6 +2,7 @@ import veact from 'veact'
 import { type, smallMargin, mediumMargin, grayRegular } from 'styles'
 import moment from 'moment'
 import { assign } from 'lodash'
+import marked from 'marked'
 import { state } from '../controllers'
 
 const view = veact()
@@ -24,7 +25,11 @@ view.render(() => {
   return div(
     h1('.name', state.get('auction').name),
     h2('.subheader', `Bidding closes ${time} EST`),
-    h2('.description', state.get('auction').description))
+    h2('.description', {
+      dangerouslySetInnerHTML: {
+        __html: marked(state.get('auction').description)
+      }
+    }))
 })
 
 export default view()

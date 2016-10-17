@@ -4,4 +4,4 @@ import moment from 'moment'
 
 router.routes()
 
-setInterval(() => state.set('now', moment().unix()), 1000)
+setInterval(() => state.set('now', moment()), 1000)
