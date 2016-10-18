@@ -1,4 +1,5 @@
 import veact from 'veact'
+import { type } from 'styles'
 
 const reset = `
 html, body, div, span, applet, object, iframe,
@@ -54,6 +55,10 @@ a {
 }
 strong {
   font-weight: bold;
+}
+body {
+  font-family: ${type('garamond').fontFamily};
+  font-size: ${type('garamond').fontSize};
 }
 `
 const view = veact()
